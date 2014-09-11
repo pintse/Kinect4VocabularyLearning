@@ -1,0 +1,73 @@
+﻿<Window x:Class="Presentation.RecognitionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        Title="RecognitionWindow" 
+        Height="768" Width="1280" ResizeMode="NoResize" WindowStartupLocation="Manual">
+    <Grid Height="768" Width="1280">
+       <TextBox Name="tbGestureDetected" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Visibility="Hidden" TextChanged="tbGestureDetected_TextChanged" />
+        <TextBlock Height="123" HorizontalAlignment="Left" Margin="655,0,0,0" Name="textCommands" Text="stand on one's own feets" TextWrapping="Wrap" VerticalAlignment="Top" Width="592" FontSize="50" Foreground="Red" Cursor="None" FontWeight="Bold" />
+        <Viewbox Name="kinectView"  HorizontalAlignment="Left" Height="480" Margin="10,10,0,0" VerticalAlignment="Top" Width="640">
+            <Grid Width="640" Height="480" ClipToBounds="True">
+
+                <!-- Kinect影像顯示圖層 -->
+                <Image x:Name="kinectDisplay" Source="{Binding Bitmap}" Margin="0,0,0,0"/>
+                <Controls:HoverButton x:Name="MenuButton" ImageSize="100"
+                              ImageSource="/UIResource/menu.png"
+                              ActiveImageSource="/UIResource/menu.png" 
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="530,10,10,370" Click="MenuButton_Click"  />
+                <Controls:HoverButton x:Name="SpeakSentenceButton" ImageSize="100"
+                              ImageSource="/UIResource/speakIcon.png"
+                              ActiveImageSource="/UIResource/speakIcon.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="530,115,10,265" Click="SpeakSentenceButton_Click"/>
+                <Controls:HoverButton x:Name="ObjectRecButton" ImageSize="100"
+                              ImageSource="/UIResource/push-button-green.png"
+                              ActiveImageSource="/UIResource/push-button-green.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="530,220,10,160" Visibility="Hidden" Click="ObjectRecButton_Click" />
+                <Controls:HoverButton x:Name="SOSButton" ImageSize="100"
+                              ImageSource="/UIResource/sos.png"
+                              ActiveImageSource="/UIResource/sos.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="425,370,115,10" Visibility="Hidden" Click="SOSButton_Click" />
+                <Controls:HoverButton x:Name="BackButton" ImageSize="100"
+                              ImageSource="/UIResource/back.png"
+                              ActiveImageSource="/UIResource/back.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="10,10,530,370" Visibility="Hidden" Click="BackButton_Click" />
+                <Controls:HoverButton x:Name="NextButton" ImageSize="100"
+                              ImageSource="/UIResource/next.png"
+                              ActiveImageSource="/UIResource/next.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="10,210,530,170" Visibility="Hidden" Click="NextButton_Click" />
+
+                <!-- 去背影像圖層 -->
+                <Image Name ="MaskedColor" Margin="0,0,0,0"/>
+                <!-- 骨架線條顯示圖層 -->
+                <Canvas x:Name="kinectCanvas" Margin="0,0,0,0">
+                </Canvas>
+                <!-- 手勢紅點軌跡圖層 -->
+                <Canvas x:Name="gesturesCanvas" Margin="0,0,0,0"/>
+                <!-- 物件辨識物件擺放位置框 -->
+                <Canvas x:Name="objectCanvas" Margin="0,0,0,0"/>
+                <Label Name="labelInfo" Content="Info" FontSize="40" Margin="10,210,10,213" Foreground="Blue" Background="Orange" HorizontalAlignment="Center" Width="620" />
+                <!-- 範例圖片 -->
+            </Grid>
+        </Viewbox>
+        <Viewbox Name ="sampleView"  HorizontalAlignment="Left" Height="480" Margin="10,10,0,0" VerticalAlignment="Top" Width="640">
+            <Image x:Name="sampleDisplay" Source="{Binding Bitmap}" Margin="10,10,0,0"/>
+        </Viewbox>
+        <Image x:Name="imageSample"  Margin="655,128,33,0" VerticalAlignment="Top" Height="592" Width="592"/>
+        <TextBlock x:Name="tbMessages" HorizontalAlignment="Left" Margin="655,128,33,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="592" Width="592" FontSize="40" />
+
+        <Grid Name="RecognitionWindow_MouseCanvas_Grid" Canvas.Left="27" Canvas.Top="478" Margin="10,495,630,48">
+            <Button x:Name="btnSpeak" Visibility="Hidden" FontSize="38" HorizontalAlignment="Center" Width="105" Height="109" VerticalAlignment="Top" Click="btnSpeak_Click" Margin="525,10,10,0" RenderTransformOrigin="2.479,0.504">
+                <Image Source="UIResource/speakIcon.png"  />
+            </Button>
+            <Button x:Name="btnSpeakSentence" Visibility="Hidden" FontSize="38" HorizontalAlignment="Center" Width="108" Height="109" VerticalAlignment="Top" Click="btnSpeakSentence_Click" Margin="360,10,172,0" RenderTransformOrigin="2.479,0.504">
+                <Image Source="UIResource/sentencespeakIcon.png"  />
+            </Button>
+            <Button Content="Next" x:Name="btnNext" FontSize="38" HorizontalAlignment="Center" Width="98" Height="8" VerticalAlignment="Top" Click="btnNext_Click" Margin="209,0,333,0"/>
+            <Button Content="Menu" x:Name="btnVocabularys" FontSize="38" HorizontalAlignment="Center" Width="119" Height="8" VerticalAlignment="Top" Click="btnVocabularys_Click" Margin="39,0,482,0"/>
+            <TextBlock x:Name="tbAllTimeInfo" Text="請一邊做動作一邊念出來。做動作可以聽單字發音喔！" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="620" Height="152" FontSize="50"/>
+
+        </Grid>
+    </Grid>
+</Window>

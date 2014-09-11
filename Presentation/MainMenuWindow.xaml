@@ -1,0 +1,45 @@
+﻿<Window x:Class="Presentation.MainMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Kinect.Toolbox;assembly=Kinect.Toolbox"
+        Loaded="MainMenuWindow_Loaded_1"
+        Title="MainMenuWindow" Height="768" Width="1280" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="184"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Home" x:Name="btnHome" FontSize="38"  Width="150" Height="80" VerticalAlignment="Top" Margin="456,430,668,0" Click="clickBtnHome" local:MagneticPropertyHolder.IsMagnetic="True"/>
+        <Button Content="Back" x:Name="btnBack" FontSize="38"  Width="147" Height="80" VerticalAlignment="Top" Margin="262,430,865,0" Click="clickBtnBack" local:MagneticPropertyHolder.IsMagnetic="True" />
+        <local:PresenceControl Width="256" Height="184" VerticalAlignment="Bottom" HorizontalAlignment="Center" x:Name="presenceControl" Grid.Row="1"/>
+        <Canvas Grid.RowSpan="2" x:Name="mouseCanvas">
+            <Grid x:Name="gridMainMenu" Height="536" Canvas.Left="10" Canvas.Top="10" Width="1252" Visibility="Visible">
+                <Button Content="Vocabulary" x:Name="btnVocabularyLearning" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="True" Click="clickVocabularyLearning" Margin="113,133,874,293"/>
+                <Button Content="Listening" x:Name="btnListeningLearning" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="True" Margin="489,133,490,295" Click="clickListeningLearning" />
+            </Grid>
+            <Grid x:Name="gridVocabularyKindMenu" Height="536" Canvas.Left="10" Canvas.Top="10" Width="1252" Visibility="Hidden">
+                <Button Content="Learning by Actions" x:Name="btnActions" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="False" Margin="149,134,726,289" Click="btnActions_Click" />
+                <Button Content="Learning by Objects" x:Name="btnObjects" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="False" Margin="708,134,167,289" Click="btnObjects_Click" />
+            </Grid>
+
+            <Grid x:Name="gridListeningMenu" Height="536" Canvas.Left="10" Canvas.Top="10" Width="1252" Visibility="Hidden">
+                <Button Content="Listening Practice" x:Name="btnListeningPractice" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="False" Margin="116,49,759,355" Click="btnListeningPractice_Click" />
+                <Button Content="Listening Game" x:Name="btnListeningGame" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="False" Margin="732,49,143,355" Click="btnListeningGame_Click" />
+            </Grid>
+
+            <Grid x:Name="gridVocabularysMenu"  Height="536" Canvas.Left="10" Canvas.Top="10" Width="1252" Visibility= "Hidden">
+                <Button x:Name="btnItem1" FontSize="45" local:MagneticPropertyHolder.IsMagnetic="False" Margin="52,50,668,404" Click="btnItem_Click"/>
+                <Button x:Name="btnItem2" FontSize="45" local:MagneticPropertyHolder.IsMagnetic="False" Margin="664,50,56,404" Click="btnItem_Click"/>
+                <Button x:Name="btnItem3" FontSize="45" local:MagneticPropertyHolder.IsMagnetic="False" Margin="52,157,668,297" Click="btnItem_Click"/>
+                <Button x:Name="btnItem4" FontSize="45" local:MagneticPropertyHolder.IsMagnetic="False" Margin="664,157,56,297" Click="btnItem_Click"/>
+                <Button x:Name="btnItem5" FontSize="45" local:MagneticPropertyHolder.IsMagnetic="False" Margin="52,270,668,183" Click="btnItem_Click"/>
+                <Button x:Name="btnItem6" FontSize="45" local:MagneticPropertyHolder.IsMagnetic="False" Margin="664,270,56,183" Click="btnItem_Click"/>
+                <Button x:Name="btnPrev" Content="Prev." FontSize="38" local:MagneticPropertyHolder.IsMagnetic="False" Margin="664,412,394,66" Click="btnPrev_Click"/>
+                <Button x:Name="btnNext" Content="Next" FontSize="38" local:MagneticPropertyHolder.IsMagnetic="False" Margin="1008,412,56,66" Click="btnNext_Click" />
+            </Grid>
+            <TextBlock x:Name="tbUserName" Canvas.Left="10" FontSize="40" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="636" Height="78" Width="487"/>
+            <TextBlock x:Name="tbInfo" Visibility="Hidden" Canvas.Left="777" FontSize="40" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="636" Height="78" Width="487"/>
+        </Canvas>
+    </Grid>
+</Window>

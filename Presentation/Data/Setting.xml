@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <db_server>localhost</db_server>
+  <kinect_type>w</kinect_type>
+</settings>

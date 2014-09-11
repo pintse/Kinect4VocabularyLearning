@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43656F9A-8F06-4D47-BC0E-DFFB62642302}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ryan.ObjectRecognition</RootNamespace>
+    <AssemblyName>Ryan.ObjectRecognition</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\dll\log4net-1.2.11\bin\net\4.0\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Iridium">
+      <HintPath>..\dll\MathNet.Iridium\MathNet.Iridium.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\IObjectColorDAO.cs" />
+    <Compile Include="DAO\IObjectFeatureDAO.cs" />
+    <Compile Include="DAO\IObjectPictureDAO.cs" />
+    <Compile Include="DAO\IObjectSURFDAO.cs" />
+    <Compile Include="DAO\ObjectColorDAO.cs" />
+    <Compile Include="DAO\ObjectMainDAO.cs" />
+    <Compile Include="DAO\ObjectPictureDAO.cs" />
+    <Compile Include="DAO\ObjectSURFDAO.cs" />
+    <Compile Include="Factory\DAOFactory.cs" />
+    <Compile Include="Factory\ServiceFactory.cs" />
+    <Compile Include="ObjectRecognitionFacade.cs" />
+    <Compile Include="Service\ClassifiedColor.cs" />
+    <Compile Include="Service\ColorRecongitionProcessor.cs" />
+    <Compile Include="Service\GlobalDataService.cs" />
+    <Compile Include="Service\IRecongitionProcessor.cs" />
+    <Compile Include="Service\IRecongitionResultProcessor.cs" />
+    <Compile Include="Service\RecongitionHandler.cs" />
+    <Compile Include="Service\RecongitionCollection.cs" />
+    <Compile Include="Service\RecongitionResultProcessor.cs" />
+    <Compile Include="Service\SURFRecongitionProcessor.cs" />
+    <Compile Include="SURF\FastHessian.cs" />
+    <Compile Include="SURF\IntegralImage.cs" />
+    <Compile Include="SURF\IPoint.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SURF\SurfDescriptor.cs" />
+    <Compile Include="VO\CongruousObjectVO.cs" />
+    <Compile Include="VO\GlobalData.cs" />
+    <Compile Include="VO\ObjectPictureVO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4netconfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ryan.Common\Ryan.Common.csproj">
+      <Project>{0875808c-dccb-4517-a8c3-f2f03ce4496b}</Project>
+      <Name>Ryan.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

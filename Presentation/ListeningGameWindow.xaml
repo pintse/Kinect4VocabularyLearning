@@ -1,0 +1,59 @@
+﻿<Window x:Class="Presentation.ListeningGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        Title="ListeningGameWindow" 
+        Height="768" Width="1280" ResizeMode="NoResize" WindowStartupLocation="Manual">
+    <Grid Height="768" Width="1280">
+        <Viewbox Name="kinectView"  HorizontalAlignment="Left" Height="480" Margin="312,182,0,0" VerticalAlignment="Top" Width="640">
+            <Grid Width="640" Height="480" ClipToBounds="True">
+
+                <!-- Kinect影像顯示圖層 -->
+                <Image x:Name="kinectDisplay" Source="{Binding Bitmap}" Margin="0,0,0,0"/>
+                <Controls:HoverButton x:Name="ObjectRecButton" ImageSize="100"
+                              ImageSource="/UIResource/push-button-green.png"
+                              ActiveImageSource="/UIResource/push-button-green.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="507,210,33,170" Visibility="Hidden"  Click="ObjectRecButton_Click" />
+                <Controls:HoverButton x:Name="BackButton" ImageSize="100"
+                              ImageSource="/UIResource/back.png"
+                              ActiveImageSource="/UIResource/back.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="10,10,530,370" Visibility="Hidden" Click="BackButton_Click" />
+                <Controls:HoverButton x:Name="NextButton" ImageSize="100"
+                              ImageSource="/UIResource/next.png"
+                              ActiveImageSource="/UIResource/next.png"
+                              Canvas.Left="0" Canvas.Top="0" TimeInterval="1000" Margin="10,210,530,170" Visibility="Hidden" Click="NextButton_Click" />
+                <!-- 去背影像圖層 -->
+                <Image Name ="MaskedColor" Margin="0,0,0,0"/>
+                <!-- 骨架線條顯示圖層 -->
+                <Canvas x:Name="kinectCanvas" Margin="0,0,0,0">
+                </Canvas>
+                <!-- 手勢紅點軌跡圖層 -->
+                <Canvas x:Name="gesturesCanvas" Margin="0,0,0,0"/>
+                <!-- 物件辨識物件擺放位置框 -->
+                <Canvas x:Name="objectCanvas" Margin="0,0,0,0"/>
+                <Label Name="labelInfo" Content="Info" FontSize="40" Margin="10,210,10,213" Foreground="Blue" Background="Orange" HorizontalAlignment="Center" Width="620" Visibility="Hidden" />
+                <!-- 範例圖片 -->
+            </Grid>
+        </Viewbox>
+
+        <TextBlock Name="textCommands" Visibility="Hidden" Text="mouthwatering" Height="149" HorizontalAlignment="Left" Margin="312,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="640" FontSize="80" Foreground="Red" Cursor="None" FontWeight="Bold" TextAlignment="Center" />
+        <TextBlock HorizontalAlignment="Left" Margin="122,46,0,0" VerticalAlignment="Top" Height="74" Width="56" FontSize="50" RenderTransformOrigin="0.491,-0.794" ><Run Language="zh-tw" Text="Q"/></TextBlock>
+        <TextBlock Text="Correct" HorizontalAlignment="Left" Margin="46,333,0,0" VerticalAlignment="Top" Height="74" Width="195" FontSize="50" />
+        <TextBlock Text="Wrong" HorizontalAlignment="Left" Margin="46,536,0,0" VerticalAlignment="Top" Height="74" Width="195" FontSize="50" />
+        <TextBlock Text="SCORE" Visibility="Hidden" HorizontalAlignment="Left" Margin="532,10,0,0" VerticalAlignment="Top" Height="74" Width="180" FontSize="50" />
+        <TextBlock Text="Total Time" TextWrapping="Wrap"  HorizontalAlignment="Left" Margin="1002,10,0,0" VerticalAlignment="Top" Height="74" Width="260" FontSize="50" />
+        <TextBlock Text="Time" HorizontalAlignment="Left" Margin="1006,604,0,0" VerticalAlignment="Top" Height="74" Width="128" FontSize="50" />
+
+        <TextBlock x:Name="tbTotal" HorizontalAlignment="Left" Margin="183,46,0,0" VerticalAlignment="Top" Height="74" Width="124" FontSize="50" Foreground="Red" TextAlignment="Center" />
+        <TextBlock x:Name="tbCorrect" HorizontalAlignment="Left" Margin="46,412,0,0" VerticalAlignment="Top" Height="74" Width="195" FontSize="50" Foreground="Red" TextAlignment="Center" />
+        <TextBlock x:Name="tbWrong" HorizontalAlignment="Left" Margin="46,610,0,0" VerticalAlignment="Top" Height="74" Width="195" FontSize="50" Foreground="Red" TextAlignment="Center" />
+        <TextBlock x:Name="tbSCORE" Visibility="Hidden" HorizontalAlignment="Left" Margin="532,89,0,0" VerticalAlignment="Top" Height="74" Width="180" FontSize="50" Foreground="Red" TextAlignment="Center" />
+        <TextBlock x:Name="tbTotalTime" TextWrapping="Wrap"  HorizontalAlignment="Left" Margin="1134,89,0,0" VerticalAlignment="Top" Height="74" Width="128" FontSize="50"  Foreground="Red"/>
+        <TextBlock x:Name="tbTime" HorizontalAlignment="Left" Margin="1139,604,0,0" VerticalAlignment="Top" Height="74" Width="123" FontSize="50"  Foreground="Red"/>
+        <Label x:Name="labCountdownNum" Content="5" HorizontalAlignment="Left" Margin="552,224,0,0" VerticalAlignment="Top" FontSize="250" Height="297" Width="180" Foreground="Red" FontWeight="Bold"/>
+        <Image x:Name="imgGameOver" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="392,521,0,0" VerticalAlignment="Top" Width="508" Source="/UIResource/GameOver.png"/>
+        <ListBox x:Name="lbQResultList" Visibility="Hidden" FontSize="30" HorizontalAlignment="Left" Height="436" Margin="952,163,0,0" VerticalAlignment="Top" Width="306"/>
+        <Label Name="labelActionInfo" Content="請做動作與念單字" FontSize="40" Margin="312,640,328,47" Foreground="Blue" Background="Orange" HorizontalAlignment="Center" Width="640" Visibility="Visible" />
+    </Grid>
+</Window>

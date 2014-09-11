@@ -1,0 +1,28 @@
+﻿<Window x:Class="Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="540" Width="540" ResizeMode="NoResize">
+    <Grid>
+        <ListBox x:Name="status" Margin="10,10,10,421">
+            Kinect感應器狀態
+        </ListBox>
+        <ListBox x:Name="lbSocketLog" Visibility="Hidden" Margin="3,96,0,100" />
+        <Button Visibility="Hidden" Content="Server" Height="23" HorizontalAlignment="Right" Margin="0,368,236,0" Name="btnServer" VerticalAlignment="Top" Width="75" Click="btnServer_Click" />
+        <Button Content="開始學習" Height="23" HorizontalAlignment="Left" Margin="431,254,0,0" Name="btnClient" VerticalAlignment="Top" Width="75" Click="btnClient_Click" />
+        <Label Content="Server IP" Visibility="Hidden" Height="28" HorizontalAlignment="Left" Margin="37,641,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Client IP" Visibility="Hidden" Height="28" HorizontalAlignment="Left" Margin="40,671,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBox Height="23" Visibility="Hidden" HorizontalAlignment="Left" Margin="102,643,0,0" Name="tbServerIP" VerticalAlignment="Top" Width="119" />
+        <TextBox Height="23" Visibility="Hidden" HorizontalAlignment="Left" Margin="102,676,0,0" Name="tbClientIP" VerticalAlignment="Top" Width="119" />
+        <Label Content="Port" Visibility="Hidden" Height="28" HorizontalAlignment="Left" Margin="223,646,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Height="23" Visibility="Hidden" HorizontalAlignment="Left" Margin="263,646,0,0" Name="tbServerPort" VerticalAlignment="Top" Width="54"  />
+        <Label Content="Port" Visibility="Hidden" Height="28" HorizontalAlignment="Left" Margin="223,677,0,0" Name="label4" VerticalAlignment="Top" />
+        <TextBox Height="23" Visibility="Hidden" HorizontalAlignment="Left" Margin="263,679,0,0" Name="tbClientPort" VerticalAlignment="Top" Width="54" />
+        <CheckBox Content="Using ONE Kinect" Visibility="Hidden" Height="16" HorizontalAlignment="Left" Margin="200,707,0,0" Name="checkBox1Kinect" VerticalAlignment="Top" Width="117" Checked="checkBox1Kinect_Checked" Unchecked="checkBox1Kinect_Unchecked"/>
+        <Button Visibility="Hidden" Content="BuildData" Height="23" HorizontalAlignment="Left" Margin="69,368,0,0" Name="btnTestSocket" VerticalAlignment="Top" Width="64" Click="btnBuildData_click" />
+        <Button Content="Test" Visibility="Hidden" Height="23" HorizontalAlignment="Left" Margin="431,703,0,0" Name="buttonTest" VerticalAlignment="Top" Width="75"  Click="buttonTest_Click" />
+        <CheckBox Content="NOR"  Visibility="Hidden" Height="16" HorizontalAlignment="Left" Margin="339,648,0,0" Name="checkBoxObjectRecongition" VerticalAlignment="Top" Checked="checkBoxObjectRecongition_Checked" Unchecked="checkBoxObjectRecongition_Unchecked" />
+        <TextBlock x:Name="tbUserInfo" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="144" Width="514" Foreground="Red" FontSize="40" />
+
+    </Grid>
+
+</Window>

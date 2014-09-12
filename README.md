@@ -3,7 +3,7 @@ Kinect4VocabularyLearning
 
 1.To use Kinect for Windows v1 sensor for English Vocabulary Learning
 
-2.The gestures and postures are recognized through KinectToolbox(https://kinecttoolbox.codeplex.com/license). It is a third party opensource.
+2.The gestures and postures are recognized through KinectToolbox(https://kinecttoolbox.codeplex.com/). It is a third party opensource.
 
 3.The objects are recognized through SURF(Ryan.ObjectRecognition/SURF). It is a third party opensource.
 

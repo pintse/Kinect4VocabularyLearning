@@ -59,7 +59,7 @@ namespace Ryan.ObjectRecognition.Service
             CongruousObjectVO congruousObjectVO = null;
 
             congruousObjectVO = recognizeObjectCongruous(realimagemap); 
-            ImageDAO.getInstance().saveBitmap(realimagemap, congruousObjectVO.ObjectPicture.ObjectName); ///TODO for testing
+            //ImageDAO.getInstance().saveBitmap(realimagemap, congruousObjectVO.ObjectPicture.ObjectName); ///TODO for testing
 
             if (congruousObjectVO.ObjectPicture != null)
             {

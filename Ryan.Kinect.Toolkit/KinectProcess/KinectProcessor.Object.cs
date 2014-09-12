@@ -285,7 +285,7 @@ namespace Ryan.Kinect.Toolkit.KinectProcess
 
         public override string ToString()
         {
-            throw new NotImplementedException();           
+            return "NotImplementedException!!!";           
         }
     }
 }

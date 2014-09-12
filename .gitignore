@@ -1,4 +1,4 @@
 # git ignore file
 *.log
-Debug
 *.suo
+Debug
